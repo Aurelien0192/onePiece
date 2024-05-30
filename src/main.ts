@@ -79,7 +79,7 @@ class Boat{
     return this._character_captain
   }
 }
-
+const root: HTMLElement = document.getElementById("app") as HTMLElement
 let boats: Array<Boat> = []
 
 getBoat().then((res:Array<boat>) => {
@@ -89,4 +89,11 @@ getBoat().then((res:Array<boat>) => {
   });
 
   console.log(boats)
+
+  boats.forEach((e) => {
+    const pName : HTMLParagraphElement = document.createElement("p")
+    pName.innerText = e.getName()
+    root.appendChild(pName)
+  })
+
 })
